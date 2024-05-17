@@ -1,28 +1,24 @@
+import java.io.IOException;
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
+public class Main extends Exception {
+    public static void main(String[] args) throws IOException {
+        // Math.pow(a,b) -> a의 b제곱
         Scanner sc = new Scanner(System.in);
 
-        //세 줄을 출력할 것이다. 정수는 n
-        //1부터 n까지의 합
-        //1부터 n까지의 합의 제곱
-        //1부터 n까지의 세제곱의 합
-
         int n = sc.nextInt();
-        int total = 0;
+        int totalA = 0;
+        int totalB = 0;
+        int totalC = 0;
 
         for (int i = 1; i <= n; i++) {
-            total += i;
+            totalA = totalA + i; // 중첩 // 값을 더해줌
+            totalB = (int)Math.pow(totalA, 2); // 중첩X // 값이 계속 바뀜 최종적으로 Math.pow(n, 2); 와 같음
+            totalC = totalC + (int)Math.pow(i, 3); // 1 6 27 64 125
         }
-        System.out.println(total);
-        System.out.println(total * total);
-
-        total = 0;
-        for (int i = 1; i <= n ; i++) {
-            total += i * i* i;
-        }
-        System.out.println(total);
+        
+        System.out.println(totalA);
+        System.out.println(totalB);
+        System.out.println(totalC);
     }
 }
-
